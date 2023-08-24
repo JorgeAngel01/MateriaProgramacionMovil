@@ -1,0 +1,94 @@
+body {
+    background-color: #333649;
+    font-family: 'Roboto', sans-serif;
+}
+
+.main-box {
+    background-color: white;
+    border-radius: 25px;
+    margin: 3rem;
+    padding: 2rem;
+    display: flex;
+    height: 100%;
+    width: fit-content;
+}
+
+.container{
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    justify-content: space-between;
+    column-gap: 3rem;
+}
+
+.box{
+    display: flex;
+    flex-flow: column nowrap;
+    align-self: center;
+    justify-content: center;
+    row-gap: 2rem;
+}
+
+
+.list{
+    display: flex;
+    flex-flow: column wrap;
+    row-gap: 1rem;
+}
+.item{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+p.item{
+    padding-left: 1rem;
+}
+
+.image{
+    border-radius: 25px;
+}
+
+.btn {
+    padding: 1rem;
+    background-color: #222744;
+    border-radius: 5px;
+    border-style: none;
+    justify-content: center;
+    color: white;
+    font-size: .8rem;
+    font-weight: bold;
+}
+
+h1.title{
+    margin: 0%;
+    color: #36384d;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+svg {
+    color: #ff6549;
+}
+
+p{
+    margin: 0;
+}
+
+label{
+    font-size: small;
+    font-weight: bolder;
+}
+
+.form-control {
+    display: flex;
+    height: 2rem;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    text-indent: 10px;
+  }
