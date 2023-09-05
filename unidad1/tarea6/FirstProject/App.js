@@ -16,6 +16,10 @@ const DATA = [
   { id: 1, name: "Martin", lastName: "Gonzalez", image: googleImage },
   { id: 2, name: "Aurora", lastName: "Maldonado", image: googleImage },
   { id: 3, name: "Jorge", lastName: "Diaz", image: googleImage },
+  { id: 4, name: "Pedro", lastName: "Licea", image: googleImage },
+  { id: 5, name: "Nicolas", lastName: "Alvarez", image: googleImage },
+  { id: 7, name: "Nicolas2", lastName: "Alvarez", image: googleImage },
+  { id: 8, name: "Nicolas3", lastName: "Alvarez", image: googleImage },
 ];
 
 export default function App() {
