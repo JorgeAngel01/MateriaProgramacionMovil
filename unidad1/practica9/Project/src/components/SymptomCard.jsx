@@ -1,41 +1,35 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
-import { AntDesign } from "@expo/vector-icons";
+import { StyleSheet, Text, View } from "react-native";
 
-const SymptomCard = ({symptom}) => {
-    const symtomIcon = "b"
-    const symptomName = "a"
-
+const SymptomCard = ({ symptom }) => {
   return (
     <View style={styles.symptomsContainer}>
-      <Text
-        style={{
-          fontSize: 18,
-          fontWeight: "600",
-          color: "",
-          textTransform: "capitalize",
-        }}
-      >
-        {symtomIcon}
-        {symptomName}
+      <Text style={styles.symptomText}>
+        {symptom === "none" ? "🙂" : symptom === "fever" ? "🤒" : "🤧"}
+        {"   "}
+        {symptom === "none" ? "I am fine" : symptom}
       </Text>
     </View>
   );
 };
 
+export default SymptomCard;
+
 const styles = StyleSheet.create({
   symptomsContainer: {
-    backgroundColor: "",
-    flexDirection: "row".
+    height: 50,
     width: 150,
-    paddingHorizontal: 10,
-    paddingVertical: 15,
+    borderRadius: 40,
+    backgroundColor: "#e6ecff",
     borderRadius: 10,
+    justifyContent: "center",
     alignItems: "center",
-    marginTop: 15,
-    marginRight: 15,
+    marginRight: 10,
+    flexDirection: "row",
+  },
+  symptomText: {
+    fontSize: 18,
+    color: "#485258",
+    fontWeight: "600",
   },
 });
-
-export default SymptomCard;

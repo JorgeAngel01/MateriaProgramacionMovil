@@ -1,64 +1,204 @@
 import React from "react";
 import {
-  Image,
-  View,
-  StyleSheet,
-  ScrollView,
-  Text,
   FlatList,
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import Card from "../components/Otros/Card";
+import { AntDesign } from "@expo/vector-icons";
+import Card from "../components/Card";
 import SymptomCard from "../components/SymptomCard";
-import Therapists from "../components/Therapists";
+import Therapist from "../components/Therapist";
 
-const IMAGE = "";
-
-const THERAPIST = [
-  { id: 1, image: Image, name: "Dr alice", job: "xd", rate: 5 },
-  { id: 2, image: Image, name: "Dr john", job: "xd", rate: 3.5 },
-  { id: 3, image: Image, name: "Dr susan", job: "xd", rate: 4.8 },
-  { id: 4, image: Image, name: "Dr smith", job: "xd", rate: 4 },
+const Sarah =
+  "https://m.media-amazon.com/images/M/MV5BMGI4MTMxOGYtMDEzNy00NjU3LWEyMjUtNzY0MTU0MDk5OTAxXkEyXkFqcGdeQXVyODgyOTMyMDM@._V1_.jpg";
+const Isabelle =
+  "https://files.lafm.com.co/assets/public/styles/twitter/public/2018-12/huerfana_1_0.jpg.webp?VersionId=WYRD2fIpG4MwhKiPMhYaxSIaQ5m1vWwn&itok=UZuFM-K0";
+const Camille =
+  "https://images.fanpop.com/images/image_uploads/The-Quiet-camilla-belle-681023_592_336.jpg";
+const data = [
+  {
+    id: 1,
+    name: "Dr. Sarah Catherine Hook",
+    job: "Physiotherapist",
+    rate: 4.5,
+    image: Sarah,
+  },
+  {
+    id: 2,
+    name: "Dr. Isabelle Furhman",
+    job: "Phyquiatric",
+    rate: 5.0,
+    image: Isabelle,
+  },
+  {
+    id: 3,
+    name: "Dr. Camille Belle",
+    job: "Physiotherapist",
+    rate: 4.0,
+    image: Camille,
+  },
+  {
+    id: 4,
+    name: "Dr. Sarah Catherine Hook",
+    job: "Physiotherapist",
+    rate: 4.5,
+    image: Sarah,
+  },
+  {
+    id: 5,
+    name: "Dr. Isabelle Furhman",
+    job: "Phyquiatric",
+    rate: 5.0,
+    image: Isabelle,
+  },
+  {
+    id: 6,
+    name: "Dr. Camille Belle",
+    job: "Physiotherapist",
+    rate: 4.0,
+    image: Camille,
+  },
 ];
 
 const CARDS = [
-  { id: 1, isDarkBlue: true, text: "Start training", iconName: "hdd", iconType: 'AntDesign' },
+  {
+    isDarkBlue: true,
+    texto: "Start training",
+    iconName: "hdd",
+    iconTypy: "AntDesign",
+  },
+  {
+    isDarkBlue: false,
+    texto: "Start training",
+    iconName: "hdd",
+    iconTypy: "AntDesign",
+  },
+  {
+    isDarkBlue: true,
+    texto: "Start training",
+    iconName: "hdd",
+    iconTypy: "AntDesign",
+  },
+  {
+    isDarkBlue: false,
+    texto: "Start training",
+    iconName: "hdd",
+    iconTypy: "AntDesign",
+  },
 ];
 
-const WelcomeScreen = () => {
+const Screen1 = () => {
   return (
     <View style={styles.container}>
-      <View style={styles.headerImage}>
-        <Ionicons name="notifications-outline" size={24} color="black" />
-        <Image style={styles.headerImage} source={{ uri: "" }} />
+      <View style={styles.headerContainer}>
+        <Ionicons name="notifications-outline" size={35} color="#3764c2" />
+        <Image
+          style={styles.headerImage}
+          source={{
+            uri: Sarah,
+          }}
+        />
       </View>
       <Text style={styles.titleText}>
-        <Text style={{ color: "#c1c0c4" }}>Hello,</Text>
-        <Text style={{ color: "#2b3941" }}>Chris</Text>
+        <Text style={{ color: "#c1c0c4" }}>Hello, </Text>
+        <Text style={{ color: "#2b3941" }}>Alan</Text>
       </Text>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-        {CARDS.map(({ id, iconName, text, iconType, isDarkBlue }) => (
-          <Card isDarkBlue={true} />
+      {/* <View style={styles.cardContainer}>
+        <View style={styles.cardIconContainer}>
+          <AntDesign name="shoppingcart" size={30} color="#fff" />
+        </View>
+        <Text style={styles.cardText}>Start training</Text>
+      </View> */}
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        style={{ marginBottom: 40 }}
+      >
+        {CARDS.map((card, index) => (
+          <Card
+            isDarkBlue={card.isDarkBlue}
+            texto={card.texto}
+            iconName={card.iconName}
+            iconTypy={card.iconTypy}
+            key={index}
+          />
         ))}
+        {/* <Card
+          isDarkBlue
+          texto={"Start training"}
+          iconName={"hdd"}
+          iconTypy={"AntDesign"}
+        />
+        <Card
+          texto={"Start training"}
+          iconName={"hdd"}
+          iconTypy={"AntDesign"}
+        />
+        <Card
+          isDarkBlue
+          texto={"Start training"}
+          iconName={"hdd"}
+          iconTypy={"AntDesign"}
+        />
+        <Card
+          texto={"Start training"}
+          iconName={"hdd"}
+          iconTypy={"AntDesign"}
+        />
+        <Card
+          isDarkBlue
+          texto={"Start training"}
+          iconName={"hdd"}
+          iconTypy={"AntDesign"}
+        /> */}
       </ScrollView>
-      <Text style={styles.textHeader}></Text>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+      <Text style={styles.textHeader}>What are your symptomps</Text>
+
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        style={{ marginTop: 20 }}
+      >
         <SymptomCard symptom="none" />
+        <SymptomCard symptom="fever" />
+        <SymptomCard symptom="flu" />
+        <SymptomCard symptom="kys" />
+        {/* <View style={styles.symptompsContainer}>
+          <Text style={{ fontSize: 18, color: "#485258", fontWeight: "600" }}>
+            I am fine
+          </Text>
+        </View>
+        <View style={styles.symptompsContainer}>
+          <Text style={{ fontSize: 18, color: "#485258", fontWeight: "600" }}>
+            I am fine
+          </Text>
+        </View> */}
       </ScrollView>
-      <View style={styles.theraTitle}>
-        <Text style={styles.textHeader}>Popular Therapist</Text>
-        <Text style={{ color: "", fontWeight: "bold" }}>See all</Text>
+      <View style={styles.therapistTitle}>
+        <Text style={styles.textHeader}>Popular therapist</Text>
+        <Text style={{ color: "#d4d4d7", fontWeight: "bold" }}>See all</Text>
       </View>
       <FlatList
-        data={THERAPIST}
-        renderItem={({ item: { name, image, job, rate } }) => (
-          <Therapists image={IMAGE} name={name} job={job} rate={rate} />
+        data={data}
+        renderItem={({ item }) => (
+          <Therapist
+            name={item.name}
+            job={item.job}
+            rate={item.rate}
+            image={item.image}
+          />
         )}
         keyExtractor={(item) => item.id}
       />
     </View>
   );
 };
+
+export default Screen1;
 
 const styles = StyleSheet.create({
   container: {
@@ -106,16 +246,24 @@ const styles = StyleSheet.create({
     color: "#236cff",
   },
   textHeader: {
-    fontSize: 25,
-    color: "",
+    fontSize: 24,
     fontWeight: "bold",
+    color: "#495258",
   },
-  theraTitle: {
-    marginTop: 30,
+  symptompsContainer: {
+    height: 50,
+    width: 200,
+    borderRadius: 40,
+    backgroundColor: "#e6ecff",
+    borderRadius: 10,
+    justifyContent: "center",
+    alignItems: "center",
+    marginRight: 10,
+  },
+  therapistTitle: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    marginTop: 30,
   },
 });
-
-export default WelcomeScreen;

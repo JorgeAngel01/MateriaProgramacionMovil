@@ -1,20 +1,12 @@
 import { StatusBar } from "expo-status-bar";
-import {
-  StyleSheet,
-  View,
-  Text,
-  StatusBar as ReactStatus,
-  Platform,
-} from "react-native";
-import { THEME } from "./src/theme/styles";
-import Constants from "expo-constants";
+import { StyleSheet, StatusBar as ReactStatus, View } from "react-native";
 import WelcomeScreen from "./src/screens/WelcomeScreen";
-
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <WelcomeScreen/>
+      <WelcomeScreen />
+      <StatusBar style="auto" />
     </View>
   );
 }
@@ -22,11 +14,9 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'White',
-    paddingTop: Constants.statusBarHeight,
-
-  },
-  text: {
-    color: "white",
+    backgroundColor: "#fff",
+    // alignItems: "center",
+    // justifyContent: "center",
+    paddingTop: ReactStatus.currentHeight,
   },
 });
