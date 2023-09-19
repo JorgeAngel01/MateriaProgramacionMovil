@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { useState } from "react";
 import Todo from "./src/components/Todo";
-import CustomButton from "./src/components/otros/Button1";
+import CustomButton from "./src/components/CustomButton";
 import TodoInput from "./src/components/TodoInput";
 
 const TODOS = [
@@ -32,7 +32,7 @@ const TODOS = [
 
 export default function App() {
   const [inputValue, setInputValue] = useState("");
-  const [todos, setTodos] = useState(TODOS);
+  const [todos, setTodos] = useState([]);
 
   const handleAddTodo = () => {
 
@@ -53,7 +53,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <View style={{ paddingHorizontal: 20 }}>
+      <View style={{ paddingHorizontal: 20, paddingTop: 10 }}>
         <Text
           style={{
             fontSize: 40,
@@ -65,31 +65,17 @@ export default function App() {
           Todo List
         </Text>
         <View style={{ flexDirection: "row", marginTop: 20, gap: 20 }}>
-          <TodoInput value={inputValue} onChangeText={} />
-          <TextInput
-            style={{
-              borderWidth: 1,
-              paddingHorizontal: 10,
-              fontSize: 20,
-              flex: 1,
-              borderRadius: 5,
-              height: 40,
-              borderColor: "white",
-              color: "white",
-            }}
-            value={inputValue}
-            onChangeText={(value) => setInputValue(value)}
-          />
+          <TodoInput value={inputValue} onChangeText={(value) => setInputValue(value)} />
           <CustomButton text="Add Task" light onPress={handleAddTodo} />
         </View>
         <FlatList
-          data={TODOS}
+          data={todos}
           keyExtractor={(item) => item.id}
           renderItem={({ item: { name } }) => <Todo name={name} />}
         />
       </View>
 
-      <StatusBar style="auto" />
+      <StatusBar style="light" />
     </View>
   );
 }

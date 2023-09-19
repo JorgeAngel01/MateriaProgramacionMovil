@@ -9,15 +9,15 @@ import {
   FlatList,
 } from "react-native";
 import { useState } from "react";
-import CustomButton from "./otros/Button1";
+import CustomButton from "./CustomButton";
 
 const Todo = ({ name }) => {
   return (
     <View style={styles.container}>
-      <Text style={{ flex: 1, fontSize: 20 }}>{name}</Text>
+      <Text style={{ fontSize: 20, fontWeight: "bold", color: "white" }}>{name}</Text>
       <View style={{ flexDirection: "row", gap: 10 }}>
-        <CustomButton text="Edit" onPress={() => console.log("Edit")} />
-        <CustomButton text="Delete" onPress={() => console.log("Delete")} />
+        <CustomButton text="Edit" onPress={() => console.log("Edit")} light/>
+        <CustomButton text="Delete" onPress={() => console.log("Delete")} light/>
       </View>
     </View>
   );
@@ -26,11 +26,12 @@ const Todo = ({ name }) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    alignItems: "center",
-    marginTop: 20,
-    flex: 1,
-    backgroundColor: "#fff",
-    paddingTop: ReactStatus.currentHeight,
+    marginTop: 30,
+    justifyContent: "space-between",
+    padding: 15,
+    borderRadius: 5,
+    backgroundColor: "#2d705f",
+    borderColor: "white",
   },
 });
 

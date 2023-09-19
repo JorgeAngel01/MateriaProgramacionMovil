@@ -9,14 +9,14 @@ import {
   FlatList,
 } from "react-native";
 import { useState } from "react";
-import CustomButton from "./otros/Button1";
+import CustomButton from "./CustomButton";
 
-const TodoInput = (value, onChangeText) => {
+const TodoInput = ({value, onChangeText}) => {
   return (
     <TextInput
       style={styles.input}
-      value={inputValue}
-      onChangeText={(value) => setInputValue(value)}
+      value={value}
+      onChangeText={onChangeText}
     />
   );
 };
