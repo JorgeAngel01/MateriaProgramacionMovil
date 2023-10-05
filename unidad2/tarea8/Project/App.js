@@ -4,24 +4,31 @@ import { THEME } from "./src/theme/styles";
 import { Constants } from "expo-constants";
 import { AppContextProvider } from "./src/context/AppContext";
 import Card from "./src/components/practica9/Card";
+import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer } from "@react-navigation/native";
+import ThirdScreen from "./src/screens/u2t9/ThirdScreen";
 
-
-const person = {
-  id: 1,
-  name: "Juan",
-  lastname: "Perez",
-  age: 25,
-  city: "Mexico",
-  country: "Mexico",
-};
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <AppContextProvider>
+    <NavigationContainer>
       <View style={styles.container}>
-        <Card person={person} />
+        <AppContextProvider>
+          <Stack.Navigator
+            initialRouteName="Third"
+            screenOptions={{
+              headerShown: false,
+            }}
+          >
+            <Stack.Screen name="Third" component={ThirdScreen} />
+            <Stack.Screen name="Card" component={Card} />
+          </Stack.Navigator>
+        </AppContextProvider>
+        <StatusBar hidden={true} /> 
       </View>
-    </AppContextProvider>
+      
+    </NavigationContainer>
   );
 }
 
@@ -31,7 +38,7 @@ const styles = StyleSheet.create({
     height: "100%",
     width: "100%",
     paddingTop: ReactStatus.currentHeight,
-    backgroundColor: THEME.COLORS.WHITE,
+    backgroundColor: THEME.COLORS.BLACK.NIGHT,
   },
 });
 

@@ -3,34 +3,29 @@ import { createContext, useState } from "react";
 const person = {
   id: 1,
   name: "Juan",
-  lastname: "Perez",
-  age: 25,
-  city: "Morelia",
+  lastName: "Lopez",
+  age: 20,
   country: "Mexico",
+  city: "Morelia",
   school: "ITM",
   isActive: false,
 };
 
-export const AppContext = createContext();
-
-import React from "react";
+const AppContext = createContext();
 
 const AppContextProvider = ({ children }) => {
-  const [person, setPerson] = useState(personObj);
+  const [personState, setPersonState] = useState(person);
 
-  const handleIsActive = () => {
-    setPerson({
-      ...person,
-      isActive: !person.isActive,
-    });
+  const handleActive = () => {
+    setPersonState({ ...personState, isActive: !personState.isActive });
   };
 
   const values = {
-    person,
-    handleIsActive,
+    handleActive,
+    person: personState,
   };
 
-  return <AppContext.Provider value={person}>{children}</AppContext.Provider>;
+  return <AppContext.Provider value={values}>{children}</AppContext.Provider>;
 };
 
-export default AppContextProvider;
+export { AppContext, AppContextProvider };
